@@ -1,0 +1,13 @@
+# Build
+/dist
+
+# Misc
+.DS_Store
+
+# Editors
+.idea
+
+# Node
+node_modules
+npm-debug.log*
+
