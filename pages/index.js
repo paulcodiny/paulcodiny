@@ -79,7 +79,7 @@ export default function Home() {
             <p>
               <strong>Achievements:</strong>
               <ul>
-                <li>The biggest project was for one of the biggest Tomsk estate agency "Center"</li>
+                <li>The biggest project was for one of the biggest Tomsk estate agency &quot;Center&quot;</li>
               </ul>
             </p>
 
@@ -100,7 +100,7 @@ export default function Home() {
           >
             <p>
               One of the first work place where I learned that you can make friends for life there.
-              We still meet with my ex-coworkers when I'm in Tomsk.
+              We still meet with my ex-coworkers when I&apos;m in Tomsk.
             </p>
 
             <p>
@@ -163,7 +163,7 @@ export default function Home() {
               <strong>Duties:</strong>
               <ul>
                 <li>Coding (commercials department first, then product, then experiments, then product again)</li>
-                <li>Backend developer -> Frontend developer -> Senior frontend developer -> Product manager</li>
+                <li>Backend developer -&gt; Frontend developer -&gt; Senior frontend developer -&gt; Product manager</li>
               </ul>
             </p>
 
@@ -396,7 +396,7 @@ export default function Home() {
             text={`Development agency`}
           >
             <p>After multiple attempts to make a useful product (Lookalik, Growity, GrowthHub) I decided to try helping others with the development process</p>
-            <p>The idea is pretty simple - there are a lot of people that don't speak English in Russia but are really good in development</p>
+            <p>The idea is pretty simple - there are a lot of people that don&apos;t speak English in Russia but are really good in development</p>
             <p>With my experience I can assemble a good team of quality developers for the half of the price of Dutch developer</p>
           </Item>
         </div>
