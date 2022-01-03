@@ -1,7 +1,8 @@
 import Head from 'next/head'
+import { useLayoutEffect } from 'react';
 
-const Item = ({ date, title, children, side = 'left' }) => (
-  <div className={`item ${side}`}>
+const Item = ({ date, title, children, side = 'left', top = '0' }) => (
+  <div className={`item ${side}`} style={{ top }}>
     <div className="date">{date}</div>
     <i className="icon fa fa-home" />
     <div className="content">
@@ -12,6 +13,22 @@ const Item = ({ date, title, children, side = 'left' }) => (
 );
 
 export default function Home() {
+  useLayoutEffect(() => {
+    const distances = { left: 0, right: 0 };
+    const $items = document.querySelectorAll('.item');
+    [...$items].forEach(($item) => {
+      if ($item.classList.contains('right')) {
+        $item.style.top = `${distances.right}px`;
+        distances.right += $item.offsetHeight;
+      } else {
+        $item.style.top = `${distances.left}px`;
+        distances.left += $item.offsetHeight;
+      }
+    });
+
+    document.querySelector('.timeline').style.height = `${Math.max(distances.left, distances.right)}px`;
+  }, []);
+
   return (
     <div className="container">
       <Head>
@@ -153,10 +170,12 @@ export default function Home() {
           <Item
             date="2011 - 2016"
             title="Topface"
-            text={`PHP, JS, CSS, HTML (Saint-Petersburg, )`}
           >
             <p>
-              ...
+              Another one of the best companies I've ever worked. We are still in contact with ex-coworkers and some of them are truly my friends.
+              Topface was one of the biggest Dating apps in Russia. It was working in Social Networks like Facebook, VK, Odnoklassniki, Moi Mir (https://my.mail.ru/) and standalone app https://topface.com/
+              It was a highload project with more than a million daily users. I learned there a lot about scalability (both horizontal and vertical), caching, queueing and many more technical features.
+              From the functional level I learned alot about A/B testing, advertising, business monitoring and product development.
             </p>
 
             <p>
@@ -294,19 +313,81 @@ export default function Home() {
             </p>
           </Item>
 
+
+          {/* Personal */}
           <Item
             side="right"
             date="2008"
-            title="Part-time"
-            text={`PHP, JS, CSS, HTML (Tomsk, E-Commerce shop of muscle growth supplements)`}
-          />
+            title="Supplements e-commerce shop"
+          >
+            <p>
+              With a couple of friends we made an e-commerce shop of muscle growth supplements.
+              From their side was financial investments and advertising, from my web development and technical support.
+            </p>
+
+            <p>
+              <strong>Duties:</strong>
+              <ul>
+                <li>Web development</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>Domain registration</li>
+                <li>Server configuration for own hosting</li>
+                <li>Website development</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Technologies:</strong>
+              PHP, JS, CSS, HTML
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              Tomsk
+            </p>
+          </Item>
 
           <Item
             side="right"
             date="2009"
-            title="Part-time"
-            text={`PHP, JS, CSS, HTML (Tomsk, Lookalike)`}
-          />
+            title="Lookalike (attempt 1)"
+          >
+            <p>
+              This is a service (App) on top of VK platform. It allows to find a similar person on uploaded photo. The group for the app is https://vk.com/lookslike_me.
+              The idea of the project belongs to Vitaliy Sokovikov (https://www.linkedin.com/in/vitaliy-s-4222a896/)
+            </p>
+
+            <p>
+              <strong>Duties:</strong>
+              <ul>
+                <li>VK app creation based on PHP (Symfony 1)</li>
+                <li>Actual program to compare pictures was created by a friend of mine from Facebook</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>VK app creation</li>
+                <li>Actual program to compare pictures was created by a friend of mine from Facebook</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Technologies:</strong>
+              PHP (Symfony 1), JS, CSS, HTML
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              Tomsk
+            </p>
+          </Item>
 
           <Item
             side="right"
@@ -314,19 +395,141 @@ export default function Home() {
             title="Part-time"
             text={`PHP, JS, CSS, HTML (Tomsk)`}
           >
-            Symfony e-commerce system. I was building a delivery system of products to avoid lines in the stores.
-            Sold for around 500 euros
+            <p>
+              E-commerce system. I was building a delivery system of products to avoid lines in the stores.
+            </p>
+
+            <p>
+              <strong>Duties:</strong>
+              <ul>
+                <li>Design in photoshop (around 13 pages)</li>
+                <li>Web development</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>Started negotiations with shops</li>
+                <li>Sold for around 500 euros due to relocation to Saint-Petersburg</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Technologies:</strong>
+              PHP (Symfony 1), JS, CSS, HTML
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              Tomsk
+            </p>
           </Item>
 
           <Item
             side="right"
             date="2011"
-            title="Lookalike (part-time)"
-            text={``}
+            title="Webface CMF"
           >
-            We were invited as a participants of TV-show about startups. Real users
-            Technologies: Ruby, JS, CSS, HTML
-            Location: Saint-Petersburg
+            <p>
+              My own Content Management Framework. https://github.com/paulcodiny/WebFace-CMF
+            </p>
+
+            <p>
+              <strong>Duties:</strong>
+              <ul>
+                <li>Architecture and development</li>
+                <li>Design</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>It was working</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Technologies:</strong>
+              PHP, JS, HTML, CSS
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              Tomsk
+            </p>
+          </Item>
+
+          <Item
+            side="right"
+            date="2011 - 2013"
+            title="Lookalike (attempt 2)"
+          >
+            <p>
+              E-commerce system. I was building a delivery system of products to avoid lines in the stores.
+            </p>
+
+            <p>
+              <strong>Duties:</strong>
+              <ul>
+                <li>Design in photoshop (around 13 pages)</li>
+                <li>Web development</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>We were invited as a participants of TV-show about startups</li>
+                <li>Real users</li>
+                <li>Own pictures comparison program switched to https://www.faceplusplus.com/face-comparing/</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Technologies:</strong>
+              Ruby (Ruby on Rails), WebSockets, Sidekiq(redis), CoffeeScript (Joosy framework https://github.com/joosy/joosy), SASS, HAML
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              Saint-Petersburg
+            </p>
+          </Item>
+
+          <Item
+            side="right"
+            date="2013"
+            title="Webface Silex Extension"
+          >
+            <p>
+              Extension for Silex https://github.com/silexphp/Silex to easily build admin panel
+            </p>
+
+            <p>
+              <strong>Duties:</strong>
+              <ul>
+                <li>Architecture and development</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Achievements:</strong>
+              <ul>
+                <li>It was working</li>
+              </ul>
+            </p>
+
+            <p>
+              <strong>Technologies:</strong>
+              PHP, JS, HTML, CSS
+            </p>
+
+            <p>
+              <strong>Location:</strong>
+              Saint-Petersburg
+            </p>
           </Item>
 
           <Item
@@ -578,7 +781,7 @@ export default function Home() {
         
         .item {
           padding: 15px 30px;
-          position: relative;
+          position: absolute;
           background: inherit;
           width: 50%;
         }
@@ -674,7 +877,7 @@ export default function Home() {
           padding: 30px 90px 30px 30px;
           background: #F6D155;
           position: relative;
-          border-radius: 0 500px 500px 0;
+          border-radius: 0 100px 100px 0;
         }
         
         .item.right .content {
