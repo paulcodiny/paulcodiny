@@ -17,7 +17,7 @@ export default function Home() {
       <header id="header">
         <div className="inner">
           <a href="#" className="image avatar"><img src="../public/images/avatar.jpg" alt=""/></a>
-          <h1><strong>Hi 👋, I'm Pavlik.</strong><br/>
+          <h1><strong>Hi 👋, I&apos;m Pavlik.</strong><br/>
             Frontend developer by day,<br/>
             small development agency owner by night.</h1>
         </div>
@@ -38,9 +38,9 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a href="mailto:paulcodiny at Google's mail" className="icon solid fa-envelope">
+                <a href="mailto:paulcodiny at Google" className="icon solid fa-envelope">
                   <FontAwesomeIcon icon={faEnvelope}/>
-                  <span className="label">paulcodiny at Google's mail</span>
+                  <span className="label">paulcodiny at Google&apos;s mail</span>
                 </a>
               </li>
             </ul>
@@ -171,19 +171,6 @@ export default function Home() {
           position: relative;
         }
 
-        .icon:before {
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-          display: inline-block;
-          font-style: normal;
-          font-variant: normal;
-          text-rendering: auto;
-          line-height: 1;
-          text-transform: none !important;
-          font-family: 'Font Awesome 5 Free';
-          font-weight: 400;
-        }
-
         .icon > .label {
           display: none;
         }
@@ -194,10 +181,6 @@ export default function Home() {
 
         .icon.solid:before {
           font-weight: 900;
-        }
-
-        .icon.brands:before {
-          font-family: 'Font Awesome 5 Brands';
         }
 
         /* Image */

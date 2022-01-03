@@ -176,7 +176,7 @@ export const Timeline = () => {
           icon={faHeart}
         >
           <p>
-            Another one of the best companies I've ever worked. We are still in contact with ex-coworkers and some of
+            Another one of the best companies I&apos;ve ever worked. We are still in contact with ex-coworkers and some of
             them are truly my friends.
             Topface was one of the biggest Dating apps in Russia. It was working in Social Networks like Facebook, VK,
             Odnoklassniki, Moi Mir (https://my.mail.ru/) and standalone app https://topface.com/
