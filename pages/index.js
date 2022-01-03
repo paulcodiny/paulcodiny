@@ -1,742 +1,61 @@
-import Head from 'next/head'
-import { useLayoutEffect } from 'react';
+import Head from 'next/head.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { Timeline } from '../components/timeline/Timeline.js';
 
-const Item = ({ date, title, children, side = 'left', top = '0' }) => (
-  <div className={`item ${side}`} style={{ top }}>
-    <div className="date">{date}</div>
-    <i className="icon fa fa-home" />
-    <div className="content">
-      <h2>{title}</h2>
-      {children}
-    </div>
-  </div>
-);
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
-  useLayoutEffect(() => {
-    const distances = { left: 0, right: 0 };
-    const $items = document.querySelectorAll('.item');
-    [...$items].forEach(($item) => {
-      if ($item.classList.contains('right')) {
-        $item.style.top = `${distances.right}px`;
-        distances.right += $item.offsetHeight;
-      } else {
-        $item.style.top = `${distances.left}px`;
-        distances.left += $item.offsetHeight;
-      }
-    });
-
-    document.querySelector('.timeline').style.height = `${Math.max(distances.left, distances.right)}px`;
-  }, []);
-
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Pavlik paulcodiny Kiselev</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
 
-      <main>
-        <div className="timeline">
-          <Item
-            date="2005"
-            title="Introduction to programming"
-          />
-
-          <Item
-            date="2006 - 2007"
-            title="Part-time freelance job"
-          >
-            <p>
-              My first commercial job.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>I was working as a freelancer for one client for almost a year.</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>I finished several projects after the previous developer (small PHP/JS fixes), made several websites from scratch (PHP, JS, HTML, CSS)</li>
-                <li>The biggest project was for chain of supermarkets Bystronom</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            date="2007 - 2008"
-            title="Part-time freelance job"
-            text={`Python, JS, CSS, HTML (Tomsk, no idea)`}
-          >
-            <p>
-              My second commercial job.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>I was working with Django framework on Python and also on client-side (JS, CSS, HTML).</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>The biggest project was for one of the biggest Tomsk estate agency &quot;Center&quot;</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            date="2008 - 2010"
-            title="Part-time(later full-time) at Zoom Group"
-          >
-            <p>
-              One of the first work place where I learned that you can make friends for life there.
-              We still meet with my ex-coworkers when I&apos;m in Tomsk.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>I was working on variety of different websites based on PHP (Symfony, Zend), MySQL, JS, HTML, CSS</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>introduced new framework PHP Symfony instead of Zend</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            date="2010 - 2011"
-            title="Full-time job at ITScript"
-          >
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>I was working on one of the biggest UK retailer https://www.bathrooms.com/.</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              Perl, JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            date="2011 - 2016"
-            title="Topface"
-          >
-            <p>
-              Another one of the best companies I've ever worked. We are still in contact with ex-coworkers and some of them are truly my friends.
-              Topface was one of the biggest Dating apps in Russia. It was working in Social Networks like Facebook, VK, Odnoklassniki, Moi Mir (https://my.mail.ru/) and standalone app https://topface.com/
-              It was a highload project with more than a million daily users. I learned there a lot about scalability (both horizontal and vertical), caching, queueing and many more technical features.
-              From the functional level I learned alot about A/B testing, advertising, business monitoring and product development.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Coding (commercials department first, then product, then experiments, then product again)</li>
-                <li>Backend developer -&gt; Frontend developer -&gt; Senior frontend developer -&gt; Product manager</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Introduced task tracker Redmine instead of Google Sheets</li>
-                <li>Introduced developer toolbar (highly inspired by Symfony Web Debug Toolbar)</li>
-                <li>Introduced the first version of User Targeting system</li>
-                <li>Won the hackathon with the time tracking system (ruby-based redmine plugin)</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Saint-Petersburg
-            </p>
-          </Item>
-
-          <Item
-            date="2016 - 2017"
-            title="Full-time frontend developer at Travix"
-          >
-            <p>
-              ...
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Front-end development for the whole project in the beginning (including emails sometimes), later on cross-sell products only</li>
-                <li>As a scrum-master facilitating refinement sessions, follow a scrum process, try to develop team maturity</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Finished a new cross-sell product before the deadline as part of a team</li>
-                <li>Finished hackathon project (not winner) as part of the new 7-people team (nice trip inspiration app for less than 24 hours)</li>
-                <li>Finished improvement of an interface to import translations l10ns</li>
-                <li>Chrome browser extension for internal purposes (simplify testing and developing)</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              React, Redux, Mocha, Chai, Javascript (ES2016), ESLint, Stylelint, Gulp, Nightwatch, Git, SCSS
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Amsterdam
-            </p>
-          </Item>
-
-          <Item
-            date="2017 - 2020"
-            title="Full-time frontend consultant at NonDutch/Frontmen"
-          >
-            <p>
-              ...
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Frontend development at TMG (3 months)</li>
-                <li>Frontend development at ING (3 years 7 months)</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Won hackathon (together with Joav Melkman) with TypeScript/Angular task tracker with Audio input and Dialog flow</li>
-                <li>Multiple talks about different topics</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              JavaScript, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Amsterdam
-            </p>
-          </Item>
-
-          <Item
-            date="2021"
-            title="Full-time frontend develop at ING"
-          >
-            <p>
-              ...
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Frontend development</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li></li>
-                <li></li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              JavaScript, CSS, HTML, Web Components, Lit, NodeJS, Monorepo, WebdriverIO
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Amsterdam
-            </p>
-          </Item>
-
-
-          {/* Personal */}
-          <Item
-            side="right"
-            date="2008"
-            title="Supplements e-commerce shop"
-          >
-            <p>
-              With a couple of friends we made an e-commerce shop of muscle growth supplements.
-              From their side was financial investments and advertising, from my web development and technical support.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Web development</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Domain registration</li>
-                <li>Server configuration for own hosting</li>
-                <li>Website development</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            side="right"
-            date="2009"
-            title="Lookalike (attempt 1)"
-          >
-            <p>
-              This is a service (App) on top of VK platform. It allows to find a similar person on uploaded photo. The group for the app is https://vk.com/lookslike_me.
-              The idea of the project belongs to Vitaliy Sokovikov (https://www.linkedin.com/in/vitaliy-s-4222a896/)
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>VK app creation based on PHP (Symfony 1)</li>
-                <li>Actual program to compare pictures was created by a friend of mine from Facebook</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>VK app creation</li>
-                <li>Actual program to compare pictures was created by a friend of mine from Facebook</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP (Symfony 1), JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            side="right"
-            date="2010"
-            title="Part-time"
-            text={`PHP, JS, CSS, HTML (Tomsk)`}
-          >
-            <p>
-              E-commerce system. I was building a delivery system of products to avoid lines in the stores.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Design in photoshop (around 13 pages)</li>
-                <li>Web development</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Started negotiations with shops</li>
-                <li>Sold for around 500 euros due to relocation to Saint-Petersburg</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP (Symfony 1), JS, CSS, HTML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            side="right"
-            date="2011"
-            title="Webface CMF"
-          >
-            <p>
-              My own Content Management Framework. https://github.com/paulcodiny/WebFace-CMF
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Architecture and development</li>
-                <li>Design</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>It was working</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, HTML, CSS
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Tomsk
-            </p>
-          </Item>
-
-          <Item
-            side="right"
-            date="2011 - 2013"
-            title="Lookalike (attempt 2)"
-          >
-            <p>
-              E-commerce system. I was building a delivery system of products to avoid lines in the stores.
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Design in photoshop (around 13 pages)</li>
-                <li>Web development</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>We were invited as a participants of TV-show about startups</li>
-                <li>Real users</li>
-                <li>Own pictures comparison program switched to https://www.faceplusplus.com/face-comparing/</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              Ruby (Ruby on Rails), WebSockets, Sidekiq(redis), CoffeeScript (Joosy framework https://github.com/joosy/joosy), SASS, HAML
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Saint-Petersburg
-            </p>
-          </Item>
-
-          <Item
-            side="right"
-            date="2013"
-            title="Webface Silex Extension"
-          >
-            <p>
-              Extension for Silex https://github.com/silexphp/Silex to easily build admin panel
-            </p>
-
-            <p>
-              <strong>Duties:</strong>
-              <ul>
-                <li>Architecture and development</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>It was working</li>
-              </ul>
-            </p>
-
-            <p>
-              <strong>Technologies:</strong>
-              PHP, JS, HTML, CSS
-            </p>
-
-            <p>
-              <strong>Location:</strong>
-              Saint-Petersburg
-            </p>
-          </Item>
-
-          <Item
-            side="right"
-            date="2013"
-            title="Part-time"
-            text={`Pure HTML (Saint-Petersburg, 3D-printing upechka)`}
-          >
-            Selling products created with 3D-printing and raised awareness about this technology
-            Together with Yury Popov (https://www.linkedin.com/in/yury-popov-978a4a67/)
-            Role: co-founder
-          </Item>
-
-          <Item
-            side="right"
-            date="2015 - 2017"
-            title="Full-time"
-            text={`JS, React, CSS, HTML (Amsterdam, Growity.me)`}
-          >
-            Conversion rate optimization tool for Escape Rooms.
-            We created a embeddable widget to run the experiments on the clients websites.
-            https://growity.me
-            We had clients on all continents.
-            Technologies: React, Graph.cool, Gitlab, Google App Engine
-          </Item>
-
-          <Item
-            side="right"
-            date="2018"
-            title="Part-time"
-            text={`JS Planet`}
-          >
-            Giving courses to developers: for Russian developer English courses, for Western developers of JavaScript.
-            Together with Alex Korzhikov (https://www.linkedin.com/in/alex-korzhikov-8614011a/) and Mikhail Kuznetcov (https://www.linkedin.com/in/michailkuznetcov/)
-            https://medium.com/js-planet
-            Role: co-founder
-          </Item>
-
-          <Item
-            side="right"
-            date="2019"
-            title="Part-time"
-            text={`GrowthHub`}
-          >
-            A task/experiment tracker that is based on Growth Hacking Cycle.
-            Three developers, together with Tomislav Dalic (https://www.linkedin.com/in/tdalic/) and Tanja Sanders (https://www.linkedin.com/in/tanjasanders/).
-            The service reached the state of pre-alpha
-            Technologies: React, Graph.cool, Gitlab, Google App Engine
-          </Item>
-
-          <Item
-            side="right"
-            date="2020 - 2021"
-            title="Part-time"
-            text={`Telegram bot to study Dutch`}
-          >
-            Record of payments number. Done together with Natalia Oskolkova (https://www.facebook.com/NataliaOskolkova).
-            After a year of development we decided to leave paid-only version from 2022.
-            Link https://t.me/HetOfDeBot.
-            Technologies: NodeJS (Heroku), PostgreSQL (Firestore in the beginning), React for landing/admin panel, https://cron-job.org/en/, Stripe (in the beginning, later switched to Pay.nl)
-          </Item>
-
-          <Item
-            side="right"
-            date="2020 - "
-            title="Part-time"
-            text={`Development agency`}
-          >
-            <p>After multiple attempts to make a useful product (Lookalik, Growity, GrowthHub) I decided to try helping others with the development process</p>
-            <p>The idea is pretty simple - there are a lot of people that don&apos;t speak English in Russia but are really good in development</p>
-            <p>With my experience I can assemble a good team of quality developers for the half of the price of Dutch developer</p>
-          </Item>
+      <header id="header">
+        <div className="inner">
+          <a href="#" className="image avatar"><img src="../public/images/avatar.jpg" alt=""/></a>
+          <h1><strong>Hi 👋, I'm Pavlik.</strong><br/>
+            Frontend developer by day,<br/>
+            small development agency owner by night.</h1>
         </div>
+
+        <footer id="footer">
+          <div className="inner">
+            <ul className="icons">
+              <li>
+                <a href="https://www.linkedin.com/in/%F0%9F%92%BB-pavlik-kiselev-06993347/" className="icon brands">
+                  <FontAwesomeIcon icon={faLinkedin}/>
+                  <span className="label">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/paulcodiny" className="icon brands fa-github">
+                  <FontAwesomeIcon icon={faGithub}/>
+                  <span className="label">Github</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:paulcodiny at Google's mail" className="icon solid fa-envelope">
+                  <FontAwesomeIcon icon={faEnvelope}/>
+                  <span className="label">paulcodiny at Google's mail</span>
+                </a>
+              </li>
+            </ul>
+            <ul className="copyright">
+              <li>&copy; Pavlik @paulcodiny Kiselev</li>
+              <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+          </div>
+        </footer>
+      </header>
+
+      <main id="main">
+        <Timeline/>
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
 
       <style jsx global>{`
         html,
@@ -744,8 +63,10 @@ export default function Home() {
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+          Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+          sans-serif;
+          
+          background-image: linear-gradient(to right, rgb(84, 74, 125), rgb(255, 212, 82));
         }
 
         *,
@@ -753,197 +74,559 @@ export default function Home() {
         *::after {
           box-sizing: border-box;
         }
-        
-        body {
-          margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
-          background: #ffffff;
-        }
-        
-        .timeline {
-          position: relative;
-          width: 100%;
-          max-width: 1140px;
-          margin: 0 auto;
-          padding: 15px 0;
-        }
-        
-        .timeline::after {
-          content: '';
-          position: absolute;
-          width: 2px;
-          background: #006E51;
-          top: 0;
-          bottom: 0;
-          left: 50%;
-          margin-left: -1px;
-        }
-        
-        .item {
-          padding: 15px 30px;
-          position: absolute;
-          background: inherit;
-          width: 50%;
-        }
-        
-        .item.left {
+
+        /* Header */
+
+        #header {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: space-between;
+          color: rgba(255, 255, 255, 0.5);
+          height: 100%;
           left: 0;
-        }
-        
-        .item.right {
-          left: 50%;
-        }
-        
-        .item::after {
-          content: '';
-          position: absolute;
-          width: 16px;
-          height: 16px;
-          top: calc(50% - 8px);
-          right: -8px;
-          background: #ffffff;
-          border: 2px solid #006E51;
-          border-radius: 16px;
-          z-index: 1;
-        }
-        
-        .item.right::after {
-          left: -8px;
-        }
-        
-        .item::before {
-          content: '';
-          position: absolute;
-          width: 50px;
-          height: 2px;
-          top: calc(50% - 1px);
-          right: 8px;
-          background: #006E51;
-          z-index: 1;
-        }
-        
-        .item.right::before {
-          left: 8px;
-        }
-        
-        .item .date {
-          position: absolute;
-          display: inline-block;
-          top: calc(50% - 8px);
-          font-size: 14px;
-          font-weight: bold;
-          color: #006E51;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          width: 110px;
-          z-index: 1;
-        }
-        
-        .item.left .date {
-          right: -125px;
-          text-align: left;
-        }
-        
-        .item.right .date {
-          left: -125px;
+          padding: 8em 4em;
+          position: fixed;
           text-align: right;
+          top: 0;
+          width: 35%;
         }
-        
-        .item .icon {
-          position: absolute;
-          display: inline-block;
-          width: 40px;
-          height: 40px;
-          padding: 9px 0;
-          top: calc(50% - 20px);
-          background: #F6D155;
-          border: 2px solid #006E51;
-          border-radius: 40px;
-          text-align: center;
-          font-size: 18px;
-          color: #006E51;
-          z-index: 1;
+
+        #header > * {
+          flex-shrink: 0;
+          width: 100%;
         }
-        
-        .item.left .icon {
-          right: 56px;
+
+        #header > .inner {
+          flex-grow: 1;
+          margin: 0 0 2em 0;
         }
-        
-        .item.right .icon {
-          left: 56px;
+
+        #header strong, #header b {
+          color: #ffffff;
         }
-        
-        .item .content {
-          padding: 30px 90px 30px 30px;
-          background: #F6D155;
-          position: relative;
-          border-radius: 0 100px 100px 0;
+
+        #header h2, #header h3, #header h4, #header h5, #header h6 {
+          color: #ffffff;
         }
-        
-        .item.right .content {
-          padding: 30px 30px 30px 90px;
-          border-radius: 500px 0 0 500px;
-        }
-        
-        .item .content h2 {
-          margin: 0 0 10px 0;
-          font-size: 18px;
-          font-weight: normal;
-          color: #006E51;
-        }
-        
-        .item .content p {
+
+        #header h1 {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 1.35em;
+          line-height: 1.75em;
           margin: 0;
-          font-size: 16px;
-          line-height: 22px;
-          color: #000000;
         }
-        
-        @media (max-width: 767.98px) {
-          .timeline::after {
-            left: 90px;
+
+        #header .image.avatar {
+          margin: 0 0 1em 0;
+          width: 6.25em;
+        }
+
+        /* Footer */
+
+        #footer .icons {
+          margin: 1em 0 0 0;
+        }
+
+        #footer .icons a {
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        #footer .copyright {
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 0.8em;
+          list-style: none;
+          margin: 1em 0 0 0;
+          padding: 0;
+        }
+
+        #footer .copyright li {
+          border-left: solid 1px rgba(255, 255, 255, 0.25);
+          display: inline-block;
+          line-height: 1em;
+          margin-left: 0.75em;
+          padding-left: 0.75em;
+        }
+
+        #footer .copyright li:first-child {
+          border-left: 0;
+          margin-left: 0;
+          padding-left: 0;
+        }
+
+        #footer .copyright li a {
+          color: inherit;
+        }
+
+        #main {
+          margin-left: 35%;
+          width: calc(100% - 35%);
+        }
+
+        /* Icon */
+
+        .icon {
+          text-decoration: none;
+          border-bottom: none;
+          position: relative;
+        }
+
+        .icon:before {
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          text-transform: none !important;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 400;
+        }
+
+        .icon > .label {
+          display: none;
+        }
+
+        .icon:before {
+          line-height: inherit;
+        }
+
+        .icon.solid:before {
+          font-weight: 900;
+        }
+
+        .icon.brands:before {
+          font-family: 'Font Awesome 5 Brands';
+        }
+
+        /* Image */
+
+        .image {
+          border-radius: 0.35em;
+          border: 0;
+          display: inline-block;
+          position: relative;
+        }
+
+        .image:before {
+          -moz-transition: opacity 0.2s ease-in-out;
+          -webkit-transition: opacity 0.2s ease-in-out;
+          -ms-transition: opacity 0.2s ease-in-out;
+          transition: opacity 0.2s ease-in-out;
+          background: url("images/overlay.png");
+          border-radius: 0.35em;
+          content: '';
+          display: block;
+          height: 100%;
+          left: 0;
+          opacity: 0.5;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+
+        .image.thumb {
+          text-align: center;
+        }
+
+        .image.thumb:after {
+          -moz-transition: opacity 0.2s ease-in-out;
+          -webkit-transition: opacity 0.2s ease-in-out;
+          -ms-transition: opacity 0.2s ease-in-out;
+          transition: opacity 0.2s ease-in-out;
+          border-radius: 0.35em;
+          border: solid 3px rgba(255, 255, 255, 0.5);
+          color: #fff;
+          content: 'View';
+          display: inline-block;
+          font-size: 0.8em;
+          font-weight: 400;
+          left: 50%;
+          line-height: 2.25em;
+          margin: -1.25em 0 0 -3em;
+          opacity: 0;
+          padding: 0 1.5em;
+          position: absolute;
+          text-align: center;
+          text-decoration: none;
+          top: 50%;
+          white-space: nowrap;
+        }
+
+        .image.thumb:hover:after {
+          opacity: 1.0;
+        }
+
+        .image.thumb:hover:before {
+          background: url("images/overlay.png"), url("images/overlay.png");
+          opacity: 1.0;
+        }
+
+        .image img {
+          border-radius: 0.35em;
+          display: block;
+        }
+
+        .image.left {
+          float: left;
+          margin: 0 1.5em 1em 0;
+          top: 0.25em;
+        }
+
+        .image.right {
+          float: right;
+          margin: 0 0 1em 1.5em;
+          top: 0.25em;
+        }
+
+        .image.left, .image.right {
+          max-width: 40%;
+        }
+
+        .image.left img, .image.right img {
+          width: 100%;
+        }
+
+        .image.fit {
+          display: block;
+          margin: 0 0 2em 0;
+          width: 100%;
+        }
+
+        .image.fit img {
+          width: 100%;
+        }
+
+        .image.avatar {
+          border-radius: 100%;
+        }
+
+        .image.avatar:before {
+          display: none;
+        }
+
+        .image.avatar img {
+          border-radius: 100%;
+          width: 100%;
+        }
+
+        /* List */
+
+        ol {
+          list-style: decimal;
+          margin: 0 0 2em 0;
+          padding-left: 1.25em;
+        }
+
+        ol li {
+          padding-left: 0.25em;
+        }
+
+        ul {
+          list-style: disc;
+          margin: 0 0 2em 0;
+          padding-left: 1em;
+        }
+
+        ul li {
+          padding-left: 0.5em;
+        }
+
+        ul.alt {
+          list-style: none;
+          padding-left: 0;
+        }
+
+        ul.alt li {
+          border-top: solid 2px #efefef;
+          padding: 0.5em 0;
+        }
+
+        ul.alt li:first-child {
+          border-top: 0;
+          padding-top: 0;
+        }
+
+        dl {
+          margin: 0 0 2em 0;
+        }
+
+        /* Icons */
+
+        ul.icons {
+          cursor: default;
+          list-style: none;
+          padding-left: 0;
+        }
+
+        ul.icons li {
+          display: inline-block;
+          padding: 0 1em 0 0;
+        }
+
+        ul.icons li:last-child {
+          padding-right: 0;
+        }
+
+        ul.icons li .icon:before {
+          font-size: 1.5em;
+        }
+
+        /* Labeled Icons */
+
+        ul.labeled-icons {
+          list-style: none;
+          padding: 0;
+        }
+
+        ul.labeled-icons li {
+          line-height: 1.75em;
+          margin: 1.5em 0 0 0;
+          padding-left: 2.25em;
+          position: relative;
+        }
+
+        ul.labeled-icons li:first-child {
+          margin-top: 0;
+        }
+
+        ul.labeled-icons li a {
+          color: inherit;
+        }
+
+        ul.labeled-icons li h3 {
+          color: #b2b2b2;
+          left: 0;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          width: 1em;
+        }
+
+        /* XLarge */
+
+        @media screen and (max-width: 1800px) {
+
+          /* Basic */
+          body, input, select, textarea {
+            font-size: 12pt;
           }
-        
-          .item {
+
+        }
+
+        /* Large */
+
+        @media screen and (max-width: 1280px) {
+
+          /* Header */
+          #header {
+            padding: 6em 3em 3em 3em;
+            width: 30%;
+          }
+
+          #header h1 {
+            font-size: 1.25em;
+          }
+
+          #header h1 br {
+            display: none;
+          }
+
+          #header > .inner {
+            margin-bottom: 0;
+          }
+
+          /* Footer */
+          #footer .copyright li {
+            border-left-width: 0;
+            display: block;
+            line-height: 2.25em;
+            margin-left: 0;
+            padding-left: 0;
+          }
+
+          /* Main */
+          #main {
+            margin-left: 30%;
+            max-width: none;
+            padding: 6em 3em 3em 3em;
+            width: calc(100% - 30%);
+          }
+
+        }
+
+        /* Medium */
+
+        @media screen and (max-width: 980px) {
+
+          /* Basic */
+          h1 br, h2 br, h3 br, h4 br, h5 br, h6 br {
+            display: none;
+          }
+
+          /* List */
+          ul.icons li .icon {
+            font-size: 1.25em;
+          }
+
+          /* Header */
+          #header {
+            background-attachment: scroll;
+            background-position: top left, center center;
+            background-size: auto, cover;
+            left: auto;
+            padding: 6em 4em;
+            position: relative;
+            text-align: center;
+            top: auto;
             width: 100%;
-            padding-left: 120px;
-            padding-right: 30px;
+            display: block;
           }
-        
-          .item.right {
-            left: 0%;
+
+          #header h1 {
+            font-size: 1.75em;
           }
-        
-          .item.left::after, 
-          .item.right::after {
-            left: 82px;
+
+          #header h1 br {
+            display: inline;
           }
-        
-          .item.left::before,
-          .item.right::before {
-            left: 100px;
-            border-color: transparent #006E51 transparent transparent;
+
+          /* Footer */
+          #footer {
+            background-attachment: scroll;
+            background-color: #1f1815;
+            background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+            background-position: top left, bottom center;
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+            bottom: auto;
+            left: auto;
+            padding: 4em 4em 6em 4em;
+            position: relative;
+            text-align: center;
+            width: 100%;
           }
-        
-          .item.left .date,
-          .item.right .date {
-            right: auto;
-            left: 15px;
+
+          #footer .icons {
+            margin: 0 0 1em 0;
           }
-        
-          .item.left .icon,
-          .item.right .icon {
-            right: auto;
-            left: 146px;
+
+          #footer .copyright {
+            margin: 0 0 1em 0;
           }
-        
-          .item.left .content,
-          .item.right .content {
-            padding: 30px 30px 30px 90px;
-            border-radius: 500px 0 0 500px;
+
+          #footer .copyright li {
+            border-left-width: 1px;
+            display: inline-block;
+            line-height: 1em;
+            margin-left: 0.75em;
+            padding-left: 0.75em;
+          }
+
+          /* Main */
+          #main {
+            margin: 0;
+            padding: 6em 4em;
+            width: 100%;
+          }
+
+        }
+
+        /* Small */
+
+        @media screen and (max-width: 736px) {
+
+          /* Basic */
+          h1 {
+            font-size: 1.5em;
+          }
+
+          h2 {
+            font-size: 1.2em;
+          }
+
+          h3 {
+            font-size: 1em;
+          }
+
+          /* Section/Article */
+          section.special, article.special {
+            text-align: center;
+          }
+
+          header.major h2 {
+            font-size: 1.35em;
+          }
+
+          /* List */
+          ul.labeled-icons li {
+            padding-left: 2em;
+          }
+
+          ul.labeled-icons li h3 {
+            line-height: 1.75em;
+          }
+
+          /* Header */
+          #header {
+            padding: 2.25em 1.5em;
+          }
+
+          #header h1 {
+            font-size: 1.35em;
+          }
+
+          /* Footer */
+          #footer {
+            padding: 2.25em 1.5em;
+          }
+
+          /* Main */
+          #main {
+            padding: 2.25em 1.5em 0.25em 1.5em;
+          }
+
+          #main > section {
+            margin: 2.25em 0 0 0;
+            padding: 2.25em 0 0 0;
+          }
+
+          /* Poptrox */
+          .poptrox-popup {
+            border-radius: 0;
+          }
+
+          .poptrox-popup .nav-next:before,
+          .poptrox-popup .nav-previous:before {
+            margin-top: -1em;
+          }
+
+        }
+
+        /* XSmall */
+
+        @media screen and (max-width: 480px) {
+
+          /* Header */
+          #header {
+            padding: 4.5em 1.5em;
+          }
+
+          #header h1 br {
+            display: none;
+          }
+
+          /* Footer */
+          #footer .copyright li {
+            border-left-width: 0;
+            display: block;
+            line-height: 2.25em;
+            margin-left: 0;
+            padding-left: 0;
           }
         }
       `}</style>
-    </div>
-  )
+    </>
+  );
 }
