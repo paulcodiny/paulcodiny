@@ -16,7 +16,7 @@ export default function Home() {
 
       <header id="header">
         <div className="inner">
-          <a href="#" className="image avatar"><img src="../public/images/avatar.jpg" alt=""/></a>
+          <a href="#" className="image avatar"><img src="/assets/img/pavlik_kiselev_10_circle.jpg" alt=""/></a>
           <h1><strong>Hi 👋, I&apos;m Pavlik.</strong><br/>
             Frontend developer by day,<br/>
             small development agency owner by night.</h1>
@@ -169,6 +169,7 @@ export default function Home() {
           text-decoration: none;
           border-bottom: none;
           position: relative;
+          font-size: 40px;
         }
 
         .icon > .label {
@@ -311,9 +312,15 @@ export default function Home() {
           margin: 0 0 2em 0;
           padding-left: 1em;
         }
+        
+        ul {
+          margin-left: 4px;
+          margin-top: 8px;
+          margin-bottom: 0;
+        }
 
         ul li {
-          padding-left: 0.5em;
+          padding-left: 0;
         }
 
         ul.alt {
@@ -410,10 +417,6 @@ export default function Home() {
 
           #header h1 {
             font-size: 1.25em;
-          }
-
-          #header h1 br {
-            display: none;
           }
 
           #header > .inner {
