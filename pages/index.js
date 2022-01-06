@@ -1,4 +1,5 @@
 import Head from 'next/head.js';
+import Image from 'next/image.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Timeline } from '../components/timeline/Timeline.js';
@@ -16,7 +17,9 @@ export default function Home() {
 
       <header id="header">
         <div className="inner">
-          <a href="#" className="image avatar"><img src="/assets/img/pavlik_kiselev_10_circle.jpg" alt=""/></a>
+          <a href="#" className="image avatar">
+            <Image src="/pavlik_kiselev_10_circle.jpg" width={200} height={200} />
+          </a>
           <h1><strong>Hi 👋, I&apos;m Pavlik.</strong><br/>
             Frontend developer by day,<br/>
             small development agency owner by night.</h1>

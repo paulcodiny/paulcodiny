@@ -27,7 +27,7 @@ export const ING = () => {
         <li>Integration of Polymer components into AngularJS application. For this I built another public page to use it as CDN to avoid failing of unmaintained pipeline</li>
         <li>Initial version of developers toolbar</li>
         <li>Monorepo for all our components</li>
-        <li>jscodeshift's list of transforms to migrate Polymer components to lion-web (https://medium.com/ing-blog/codemod-idea-to-make-your-codebase-evergreen-part-1-2-theory-f5b44e7824a2)</li>
+        <li>jscodeshift&apos;s list of transforms to migrate Polymer components to lion-web (https://medium.com/ing-blog/codemod-idea-to-make-your-codebase-evergreen-part-1-2-theory-f5b44e7824a2)</li>
         <li>Security Champion</li>
         <li>Storybook development plugins</li>
       </ul>
