@@ -9,8 +9,8 @@ export function MuscleSupplements() {
     icon={faDumbbell}
   >
     <p>
-      With a couple of friends we made an e-commerce shop of muscle growth supplements.
-      From their side was financial investments and advertising, from my web development and technical support.
+      A couple of friends and I created an e-commerce shop specializing in muscle growth supplements.
+      They handled the financial investments and advertising, while I was responsible for web development and technical support.
     </p>
 
     <p>

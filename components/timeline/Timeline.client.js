@@ -1,4 +1,3 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
 import { Introduction } from './daily/00_Introduction.js';
 import { FirstJob } from './daily/01_FirstJob.js';
 import { SecondJob } from './daily/02_SecondJob.js';
@@ -19,80 +18,45 @@ import { Growity } from './nightly/07_Growity.js';
 import { JSPlanet } from './nightly/08_JSPlanet.js';
 import { GrowthHub } from './nightly/09_GrowthHub.js';
 import { HetOfDe } from './nightly/10_HetOfDe.js';
-import { GrowityStudio } from './nightly/11_GrowityStudio.js';
-
-const useIsomorphicLayoutEffect = typeof window !== 'undefined'
-  ? useLayoutEffect
-  : useEffect;
-
-const distributeItems = (timelineRef) => {
-  if (!timelineRef?.current) {
-    return;
-  }
-
-  const distances = { left: 0, right: 0 };
-  const $items = timelineRef.current.querySelectorAll('.item');
-  [...$items].reverse().forEach(($item) => {
-    if ($item.classList.contains('right')) {
-      $item.style.top = `${distances.right}px`;
-      distances.right += $item.offsetHeight;
-    } else {
-      $item.style.top = `${distances.left}px`;
-      distances.left += $item.offsetHeight;
-    }
-  });
-
-  timelineRef.current.style.height = `${Math.max(distances.left, distances.right)}px`;
-};
+import { CodevilleStudio } from './nightly/11_GrowityStudio.js';
 
 export const Timeline = () => {
-  const timelineRef = useRef();
-
-  const observer = useRef(
-    new ResizeObserver(() => {
-      distributeItems(timelineRef);
-    })
-  );
-
-  useIsomorphicLayoutEffect(() => {
-    if (timelineRef.current) {
-      observer.current.observe(timelineRef.current)
-    }
-
-    return observer.current.unobserve;
-  }, [timelineRef, observer])
-
-  useIsomorphicLayoutEffect(() => {
-    distributeItems(timelineRef);
-  }, [timelineRef]);
 
   return (
     <>
-      <div className="timeline" ref={timelineRef}>
-        {/* Nightly */}
-        <Introduction/>
-        <FirstJob/>
-        <SecondJob/>
-        <ZoomGroup/>
-        <ITScript/>
-        <Topface/>
-        <Travix/>
-        <NonDutch/>
+      <div className="timeline">
         <ING/>
 
-        {/* Daily */}
-        <MuscleSupplements />
-        <Lookslike />
-        <HomeDelivery />
-        <Webface />
-        <LookslikeSecond />
-        <WebfaceSilex />
-        <Upechka />
-        <Growity />
-        <JSPlanet />
-        <GrowthHub />
+        <CodevilleStudio />
         <HetOfDe />
-        <GrowityStudio />
+        <GrowthHub />
+        <JSPlanet />
+
+        <NonDutch/>
+
+        <Growity />
+
+        <Travix/>
+
+        <Upechka />
+
+        <Topface/>
+
+        <WebfaceSilex />
+        <LookslikeSecond />
+
+        <Webface />
+        <HomeDelivery />
+
+        <ITScript/>
+
+        <Lookslike />
+        <MuscleSupplements />
+
+        <ZoomGroup/>
+        <SecondJob/>
+        <FirstJob/>
+        <Introduction/>
       </div>
 
       <style jsx>{`
@@ -112,6 +76,12 @@ export const Timeline = () => {
           bottom: 0;
           left: 50%;
           margin-left: -1px;
+        }
+
+        @media (max-width: 767.98px) {
+            .timeline::after {
+                display: none;
+            }
         }
       `}</style>
     </>
