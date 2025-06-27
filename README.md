@@ -5,7 +5,7 @@
 ![](https://img.shields.io/badge/license-MIT-green)
 
 Hi there, I'm **Pavlik Kiselev**, Full-stack JavaScript developer from Amsterdam happily working at ING.  
-Another passion of mine is to help small companies and startups with their development as part of development agency SuS
+Another passion of mine is to help small companies and startups with their development as founder of an development agency https://codeville.agency
 
 ## 💻 Stack and experience
 
