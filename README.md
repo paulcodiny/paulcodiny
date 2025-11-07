@@ -5,6 +5,7 @@
 ![](https://img.shields.io/badge/license-MIT-green)
 
 Hi there, I'm **Pavlik Kiselev**, Full-stack JavaScript developer from Amsterdam happily working at ING.  
+In my free time I [contribute](https://github.com/ing-bank/lion/pulls?q=is%3Apr+is%3Aclosed+author%3Apaulcodiny) to [Lion Web Components](https://github.com/ing-bank/lion) to keep them a reliable choice for the Web projects and explore AI possibilities to improve Developer Productivity.  
 <!--  Another passion of mine is to help small companies and startups with their development as founder of an development agency https://codeville.agency -->
 
 ## 💻 Stack and experience
@@ -81,7 +82,10 @@ Hi there, I'm **Pavlik Kiselev**, Full-stack JavaScript developer from Amsterdam
 <a target="_blank" href="https://github-readme-medium-recent-article.vercel.app/medium/@paulcodiny/2"><img src="https://github-readme-medium-recent-article.vercel.app/medium/@paulcodiny/2"></a>
   
 ## ⭐ Talks and workshops I gave
-  
+
+- NodeCongress 2025. [Building a RAG System in Node.js](https://gitnation.com/contents/building-a-rag-system-in-nodejs-vector-databases-embeddings-and-chunking)
+- HolyJS 2025. [Создание RAG-системы на Node.js](https://holyjs.ru/talks/61d857793c5f47858cd32a9f11e37c51/?referer=%2Fschedule%2Ftable%2F) (russian)
+- NodeCongress 2023. [Back to the Roots With Remix](https://gitnation.com/contents/back-to-the-roots-with-remix)
 - Frontmania 2019. Laverage the power of serverless to become full-stack developer https://www.youtube.com/watch?v=p2-wWDRQgxM&t=2s
 - NodeConf EU 2019. Mastering CLI app with TypeScript
   
