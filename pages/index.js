@@ -18,12 +18,12 @@ export default function Home() {
       <header id="header">
         <div className="inner">
           <a href="#" className="image avatar">
-            <Image src="/pavlik_kiselev_10_circle.jpg" width={200} height={200} />
+            <Image src="/me_sq.jpg" width={200} height={200} />
           </a>
           <h1>
             <strong>Hi 👋, I&apos;m Pavlik.</strong><br/>
             Frontend developer by day,<br/>
-            small development agency owner by night.
+            curious mind and AI explorer by night.
           </h1>
         </div>
 
