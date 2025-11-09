@@ -124,7 +124,6 @@ export default function Home() {
 
         #header .image.avatar {
           margin: 0 0 1em 0;
-          width: 6.25em;
         }
 
         /* Footer */
